@@ -24,3 +24,8 @@ def bubbleSort(arr):
 bubbleSort(list_of_20Rand)
 # for i in list_of_20Rand:
     # print(i.fitnessValue)
+
+print ("///////   Selecting best 10 chromosomes   ////////")
+selected10 = list_of_20Rand[:10]
+for i in selected10:
+    print(i.chrom , " with fitness ", i.fitnessValue)
