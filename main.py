@@ -40,3 +40,8 @@ print( "///////   Randomly Mutating each chromosome   ///////")
 for i in range(0,10):
     selected10[i].mutate()
     print(selected10[i].chrom, " with fitness ", selected10[i].fitnessValue)
+
+print( "///////   Sorting list of 10 selected chromosomes   ///////")
+bubbleSort(selected10)
+for i in range(0,10):
+    print(selected10[i].chrom, " with fitness ", selected10[i].fitnessValue)
