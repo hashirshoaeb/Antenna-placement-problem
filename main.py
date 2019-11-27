@@ -30,18 +30,23 @@ selected10 = list_of_20Rand[:10]
 for i in selected10:
     print(i.chrom , " with fitness ", i.fitnessValue)
 
-print ("///////   Crossing over best 10 chromosomes   ////////")
-for i in range(0, 10, 2):
-    selected10[i].crossover(selected10[i+1], r.choice([1,2,3,4]))
-    print(selected10[i].chrom, " with fitness ", selected10[i].fitnessValue)
-    print(selected10[i + 1].chrom, " with fitness ", selected10[i + 1].fitnessValue)
+not_find = True
+while(not_find):
+    print ("///////   Crossing over best 10 chromosomes   ////////")
+    for i in range(0, 10, 2):
+        selected10[i].crossover(selected10[i+1], r.choice([1,2,3,4]))
+        print(selected10[i].chrom, " with fitness ", selected10[i].fitnessValue)
+        print(selected10[i + 1].chrom, " with fitness ", selected10[i + 1].fitnessValue)
 
-print( "///////   Randomly Mutating each chromosome   ///////")
-for i in range(0,10):
-    selected10[i].mutate()
-    print(selected10[i].chrom, " with fitness ", selected10[i].fitnessValue)
+    print( "///////   Randomly Mutating each chromosome   ///////")
+    for i in range(0,10):
+        selected10[i].mutate()
+        print(selected10[i].chrom, " with fitness ", selected10[i].fitnessValue)
 
-print( "///////   Sorting list of 10 selected chromosomes   ///////")
-bubbleSort(selected10)
-for i in range(0,10):
-    print(selected10[i].chrom, " with fitness ", selected10[i].fitnessValue)
+    print( "///////   Sorting list of 10 selected chromosomes   ///////")
+    bubbleSort(selected10)
+    for i in range(0,10):
+        print(selected10[i].chrom, " with fitness ", selected10[i].fitnessValue)
+
+    if selected10[0].fitnessValue == 24: # RUN  untill get the best solution which is 24
+        not_find = False
