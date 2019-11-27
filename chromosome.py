@@ -29,3 +29,20 @@ class chromosome:
         # print(self.area)
         # print(self.fitnessValue)
         return self.fitnessValue
+
+    def update(self, chromosome):
+        self.chrom = chromosome.chrom
+        self.cal_fitness()
+
+    def crossover(self, chromosome, position): # postion range 1-4, no error range 0-5
+        for i in range(0,position):
+                self.chrom[i], chromosome.chrom[i] = chromosome.chrom[i], self.chrom[i]
+        self.cal_fitness()
+        chromosome.cal_fitness()
+
+    def mutate(self):
+        num1 = r.choice([1,2,3,4,5,6])
+        num2 = r.choice([1,2,3,4,5,6])
+        position = r.choice([0,1,2,3,4])
+        self.chrom[position] = [num1, num2]
+        self.cal_fitness()
